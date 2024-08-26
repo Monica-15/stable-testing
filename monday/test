@@ -1,0 +1,6 @@
+#!  /bin/bash
+mkdir newfolder
+cd newfolder
+touch newfile
+cd newfile
+vim "one line"
