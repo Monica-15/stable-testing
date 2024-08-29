@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    parameters {
+        choice(
+            name: 'BRANCH',
+            choices:"main,monica,monica15" ,
+            description: 'Select the branch to deploy to repective Airflow' )
+    }
+    stages {
+        stage('checkout code') {
+            steps {
+                git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)
+                sh 'ls -al'
+            }
+        }
+        
+    }
+}
