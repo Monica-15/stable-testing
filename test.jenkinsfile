@@ -1,11 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(
-            name: 'BRANCH',
-            choices:"main,monica,monica15" ,
-            description: 'Select the branch to deploy to repective Airflow' )
-    }
+       choice(name: 'BRANCH', choices: ['main', 'monica', 'monica1'], description: 'select branch too build') 
+       }
     stages {
         stage('checkout code') {
             steps {
