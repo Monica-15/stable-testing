@@ -13,7 +13,7 @@ pipeline {
 	stage('docker build'){
 	steps{
 	git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)   
-	sh 'docker pull nginx'
+	sh 'cd tuesday'
 	sh 'docker build -t nginx .'
 	sh 'docker run -d -p 80:85 --name nginx'
         sh 'docker ps'
