@@ -1,12 +1,5 @@
 pipeline {
     agent any
-stages {     
-    stage('nginx Install') {
-      agent {         
-       docker {          
-         image 'nginx'         
-     }       
-  }       
     parameters {
        choice(name: 'BRANCH', choices: ['main', 'monica', 'monica1'], description: 'select branch too build') 
        }
@@ -17,16 +10,21 @@ stages {
                 sh 'ls -al'
             }
         }
-stage('deploy'){
-steps{
-git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)
-    sh 'docker pull nginx'
-    sh 'docker build -t nginx .'
-    sh 'docker run -d -p 80:80 --name nginx'
-    sh 'docker ps'
 }
-}
-}
-}
+pipeline {
+    agent none
+   stages {     
+    stage('Maven Install') {
+      agent {         
+       docker {          
+         image 'maven:3.5.0'         
+     }       
+  }       
+  steps {
+       sh 'mvn clean install'
+       }
+     }
+   }
+ }
 }
 }
