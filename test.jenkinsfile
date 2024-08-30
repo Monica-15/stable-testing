@@ -1,5 +1,8 @@
 pipeline {
     agent any
+tools {
+        dockerTool 'docker-19.03.9'
+    }
     parameters {
        choice(name: 'BRANCH', choices: ['main', 'monica', 'monica1'], description: 'select branch too build') 
        }
@@ -14,9 +17,10 @@ pipeline {
 	steps{
 	git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)   
 	sh 'cd tuesday'
+        sh 'docker pull ngnix'
+        sh 'docker build -d nginx .'
+        sh 'docker run -d -p 80:80 --name nginx'
         sh 'docker ps'
-        sh 'docker images'
-        sh 'docker container'
 	}
 	}
         
