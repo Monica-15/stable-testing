@@ -13,7 +13,6 @@ tools {
                 sh 'ls -al'
             }
         }
-    stages {
 stage('deploy'){
 steps{
 git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)
@@ -21,7 +20,6 @@ git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BR
     sh 'docker build -t nginx .'
     sh 'docker run -d -p 80:80 --name nginx'
     sh 'docker ps'
-}
 }
 }
 }
