@@ -1,7 +1,7 @@
 pipeline {
     agent any
 tools {
-        dockerTool 'Docker version 27.1.1'
+        dockerTool "null"
     }
     parameters {
        choice(name: 'BRANCH', choices: ['main', 'monica', 'monica1'], description: 'select branch too build') 
