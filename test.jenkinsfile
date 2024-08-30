@@ -10,7 +10,7 @@ pipeline {
                 sh 'ls -al'
             }
         }
-	stages('docker build'){
+	stage('docker build'){
 	steps{
 	git(url: 'https://github.com/Monica-15/stable-testing.git', branch: "${params.BRANCH}", credentialsId: 'github', changelog: true)   
 	sh 'cd tuesday'
