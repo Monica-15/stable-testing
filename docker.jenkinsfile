@@ -7,15 +7,6 @@ pipeline {
       description: 'Passing the Environment'
     )
   }
-  stages {
-    stage('build') {
-      steps {
-        echo " The environment is ${params.Env}"
-      }
-      steps{
      sh 'ls -al'
-  }
-    }
-  }
   }
   
