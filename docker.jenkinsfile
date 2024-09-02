@@ -14,6 +14,8 @@ pipeline {
                 sh "echo Choice: ${params.CHOICE}"
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
+                sh 'cd tuesday'
+                sh 'dockerfile.sh'
             }
         }
     }
