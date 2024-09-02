@@ -15,7 +15,9 @@ pipeline {
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
                 sh 'cd tuesday'
-                sh 'dockerfile.sh'
+                sh 'docker pull nginx'
+                sh 'docker build -t nginx .'
+                sh 'docker run -d -p 8081:92
             }
         }
     }
