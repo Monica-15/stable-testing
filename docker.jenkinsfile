@@ -2,8 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            agent {
-                docker any {
+            agent any {
+                docker {
                     image 'nginx'
                     // Run the container on the node specified at the
                     // top-level of the Pipeline, in the same workspace,
