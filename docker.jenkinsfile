@@ -1,12 +1,21 @@
 pipeline {
-  agent any
-  parameters {
-    choice(
-      name: 'BRANCH',
-      choices: ['main', 'monica', 'monica1'],
-      description: 'Passing the Environment'
-    )
-  }
-     sh 'ls -al'
-  }
+    agent any
+    parameters {
+        choice(
+            name: 'CHOICE',
+            choices: ['main', 'monica', 'monica1'],
+            description: ''
+        )
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Choice: ${params.CHOICE}"
+                sh "echo Choice: ${params.CHOICE}"
+                sh 'echo Choice: $CHOICE'
+		sh 'ls -al'
+            }
+        }
+    }
+}
   
