@@ -1,19 +1,20 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'nginx'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'nginx --version'
-            }
-        }
+  agent any
+  parameters {
+    choice(
+      name: 'BRANCH',
+      choices: ['main', 'monica', 'monica1'],
+      description: 'Passing the Environment'
+    )
+  }
+  stages {
+    stage('Environment') {
+      steps {
+        echo " The environment is ${params.Env}"
+      }
+      steps{
+      sh 'ls -al'
+  }
     }
-
+  }
+}
