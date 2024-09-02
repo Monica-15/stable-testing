@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< HEAD
   agent any
   parameters {
     choice(
@@ -18,3 +19,24 @@ pipeline {
     }
   }
 }
+=======
+    agent any
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'gradle:8.2.0-jdk17-alpine'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
+            }
+            steps {
+                sh 'gradle --version'
+            }
+        }
+    }
+}
+
+>>>>>>> 2a42d530220dd206cb9a29441832d02df3f04f1d
