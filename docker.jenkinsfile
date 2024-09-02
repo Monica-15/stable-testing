@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            agent any {
+            agent any 
                 docker {
                     image 'nginx'
                     // Run the container on the node specified at the
@@ -10,7 +10,6 @@ pipeline {
                     // rather than on a new node entirely:
                     reuseNode true
                 }
-            }
             steps {
                 sh 'nginx --version'
             }
