@@ -15,11 +15,6 @@ pipeline {
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
                 sh 'cd tuesday'
-                sh 'docker pull nginx'
-                sh 'docker build -t nginx .'
-                sh 'docker run -d -p 8081:82'
-                sh 'docker images'
-                sh 'docker ps'
             }
         }
     }
