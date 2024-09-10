@@ -1,7 +1,7 @@
 pipeline {
 environment {
 registry = "dockerhub121/devops-1st-repo"
-registryCredential = 'dockerhub121'
+registryCredential = 'Dockerhub@121'
 dockerImage = ''
 }
 agent any
