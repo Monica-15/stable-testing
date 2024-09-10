@@ -6,11 +6,6 @@ dockerImage = ''
 }
 agent any
 stages {
-stage('Cloning our Git') {
-steps {
-git 'https://github.com/Monica-15/stable-testing.git'
-}
-}
 stage('Building our image') {
 steps{
 script {
