@@ -8,8 +8,6 @@ pipeline {
         )
     }
     stages {
-        stage('checkout code') 
-	{
             steps {
                 echo "Choice: ${params.CHOICE}"
                 sh "echo Choice: ${params.CHOICE}"
@@ -30,4 +28,4 @@ pipeline {
     }
 }
 } 
-}
+
