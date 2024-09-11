@@ -18,6 +18,8 @@ pipeline {
             }
 	    stage('docker build'){
 	    steps {
+	    sh 'ls -al'
+	    sh 'cd tuesday'
 	    sh 'docker build -t nginx'
 	    sh 'docker run -it --rm -d -p 8081:89 --name nginx'
 	    sh 'docker ps'
