@@ -14,8 +14,7 @@ pipeline {
                 sh "echo Choice: ${params.CHOICE}"
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
-                sh 'cd tuesday'
-		sh 'dockerfile.sh'
+                sh 'cd tuesday/dockerfile'
 	        sh 'docker build -t nginx'
 	        sh 'docker run -it --rm -d -p 8081:89 --name nginx'
 	        sh 'docker ps'
