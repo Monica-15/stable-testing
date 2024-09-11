@@ -8,7 +8,8 @@ pipeline {
         )
     }
     stages {
-        stage('Choice') {
+        stage('parameter') 
+	{
             steps {
                 echo "Choice: ${params.CHOICE}"
                 sh "echo Choice: ${params.CHOICE}"
@@ -16,7 +17,8 @@ pipeline {
 		sh 'ls -al'
                 sh 'cd tuesday'
             }
-	    stage('docker build'){
+	    stage('docker build')
+	    {
 	    steps {
 	    sh 'ls -al'
 	    sh 'cd tuesday'
