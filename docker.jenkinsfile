@@ -8,24 +8,18 @@ pipeline {
         )
     }
     stages {
+    stage('checkout'){
             steps {
                 echo "Choice: ${params.CHOICE}"
                 sh "echo Choice: ${params.CHOICE}"
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
                 sh 'cd tuesday'
-            }
-	    stage('docker build')
-	    {
-	    steps {
-	    sh 'ls -al'
-	    sh 'cd tuesday'
-	    sh 'docker build -t nginx'
-	    sh 'docker run -it --rm -d -p 8081:89 --name nginx'
-	    sh 'docker ps'
+	        sh 'docker build -t nginx'
+	        sh 'docker run -it --rm -d -p 8081:89 --name nginx'
+	        sh 'docker ps'
 	   
         }
     }
 }
 } 
-
