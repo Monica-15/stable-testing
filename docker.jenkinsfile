@@ -8,7 +8,7 @@ pipeline {
         )
     }
     stages {
-        stage('Example') {
+        stage('Choice') {
             steps {
                 echo "Choice: ${params.CHOICE}"
                 sh "echo Choice: ${params.CHOICE}"
@@ -16,7 +16,7 @@ pipeline {
 		sh 'ls -al'
                 sh 'cd tuesday'
             }
-	    stage ('docker build'){
+	    stage('docker build'){
 	    steps {
 	    sh 'docker build -t nginx'
 	    sh 'docker run -it --rm -d -p 8081:89 --name nginx'
