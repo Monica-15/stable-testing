@@ -15,7 +15,7 @@ pipeline {
                 sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
                 sh 'cd tuesday'
-		sh 'cd dockerfile'
+		sh 'vim dockerfile'
 	        sh 'docker build -t nginx'
 	        sh 'docker run -it --rm -d -p 8081:89 --name nginx'
 	        sh 'docker ps'
