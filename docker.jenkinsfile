@@ -2,21 +2,16 @@ pipeline {
     agent any
     parameters {
         choice(
-            name: 'CHOICE',
-            choices: ['main', 'monica', 'monica1'],
-            description: ''
+            name: 'CHOICE', choices: ['main', 'monica', 'monica1'], description: 'Please choose the branch here'
         )
     }
     stages {
     stage('checkout'){
             steps {
-                echo "Choice: ${params.CHOICE}"
-                sh "echo Choice: ${params.CHOICE}"
-                sh 'echo Choice: $CHOICE'
 		sh 'ls -al'
 		sh 'cd tuesday'
 		sh 'chmod 777 ./tuesday/dockerfile'
-	        sh 'echo "Today is $BUILD_TIMESTAMP" && ls'
+	        sh 'echo "Today is $BUILD_NUMBER" && ls'
 	   
         }
     }
