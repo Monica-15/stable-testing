@@ -1,8 +1,4 @@
-FROM docker
-#:1.10.1-alpine
-RUN rm /etc/docker/docker.conf /etc/docker/conf.d/default.conf
-#COPY content /usr/share/nginx/html
-COPY index.html /usr/share/docker/html
-COPY conf /etc/docker
-EXPOSE 8081:42
-CMD ["docker", "-g", "daemon off;"]
+FROM jenkins
+USER root
+RUN apt-get update && apt-get install -y docker.io 325 && rm -rf /var/lib/apt/lists/*
+user jenkins
