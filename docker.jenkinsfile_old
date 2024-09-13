@@ -16,10 +16,11 @@ pipeline {
 		sh 'ls -al'
 		sh 'cd tuesday'
 		sh 'chmod 777 ./tuesday/dockerfile'
-		sh 'install docker'
-	        sh 'docker build -t nginx-${BUILD_NUMBER} .'
-	        sh 'docker run -it --rm -d -p 8081:89 --name nginx-container nginx-image'
-	        sh 'docker ps'
+		sh 'docker --version'
+	      //sh 'install docker'
+	        //sh 'docker build -t nginx-${BUILD_NUMBER} .'
+	        //sh 'docker run -it --rm -d -p 8081:89 --name nginx-container nginx-image'
+	        //sh 'docker ps'
 	   
         }
     }
