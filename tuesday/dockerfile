@@ -4,5 +4,5 @@ RUN rm /etc/docker/docker.conf /etc/docker/conf.d/default.conf
 #COPY content /usr/share/nginx/html
 COPY index.html /usr/share/docker/html
 COPY conf /etc/docker
-EXPOSE 8080
+EXPOSE 8081:42
 CMD ["docker", "-g", "daemon off;"]
