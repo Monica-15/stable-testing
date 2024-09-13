@@ -16,7 +16,6 @@ pipeline {
 		sh 'ls -al'
 		sh 'cd tuesday'
 		sh 'chmod 777 ./tuesday/dockerfile'
-		sh 'run ./tuesday/dockerfile'
 		sh 'set +e'
 		sh 'docker --version'
 	        sh 'docker build -t nginx-${BUILD_NUMBER} .'
