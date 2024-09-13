@@ -16,7 +16,6 @@ pipeline {
 		sh 'ls -al'
 		sh 'cd tuesday'
 		sh 'chmod 777 ./tuesday/dockerfile'
-		sh ' ./tuesday/dockerfile'
 	        sh 'docker build -t nginx .'
 	        sh 'docker run -it --rm -d -p 8081:89 --name nginx-container nginx-image'
 	        sh 'docker ps'
