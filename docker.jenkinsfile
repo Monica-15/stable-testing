@@ -16,7 +16,7 @@ pipeline {
 		sh 'ls -al'
 		sh 'cd tuesday'
 		sh 'chmod 777 ./tuesday/dockerfile'
-	        sh 'echo "Today is $BUILD_ID-$DATE" && ls'
+	        sh 'echo "Today is $BUILD_TIMESTAMP" && ls'
 	   
         }
     }
